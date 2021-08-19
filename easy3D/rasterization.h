@@ -18,15 +18,15 @@ namespace easy3d {
         // 使用指定颜色清空
         void clear(COLORREF color = 0);
         // 画线
-        void drawLine(float x1, float y1, float x2, float y2, COLORREF color = 0xffffff);
+        void drawLine(double x1, double y1, double x2, double y2, COLORREF color = 0xffffff);
         // 填充三角形
-        void drawFillTriangle(float x1_, float y1_, float x2_, float y2_, float x3_, float y3_, COLORREF color = 0xffffff);
+        void drawFillTriangle(double x1_, double y1_, double x2_, double y2_, double x3_, double y3_, COLORREF color = 0xffffff);
         // 返回显示缓冲
         const DWORD* getBuffer();
 
     private:
         void __writePixel(int x, int y, COLORREF color);
-        void __toDisplayCoord(float x, float y, float& _x, float& _y);
+        void __toDisplayCoord(double x, double y, double& _x, double& _y);
 
     private:
         int __width;

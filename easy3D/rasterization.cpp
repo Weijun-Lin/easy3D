@@ -3,6 +3,7 @@
 easy3d::Rasteration::Rasteration(int width, int height):
     __width(width), __height(height), __buffer(nullptr) {
     this->__buffer = new COLORREF[width * height];
+    // 默认为黑色背景
     memset(this->__buffer, 0, sizeof(COLORREF) * height * width);
     this->__size = width * height;
 }
@@ -18,7 +19,7 @@ void easy3d::Rasteration::clear(COLORREF color) {
 }
 
 // 使用 Bresenham 算法生成直线
-void easy3d::Rasteration::drawLine(float x1, float y1, float x2, float y2, COLORREF color) {
+void easy3d::Rasteration::drawLine(double x1, double y1, double x2, double y2, COLORREF color) {
     // 传递进来的坐标需要保证在标准化坐标系中 -1~1
 
     // 转换到显示设备坐标系
@@ -43,7 +44,7 @@ void easy3d::Rasteration::drawLine(float x1, float y1, float x2, float y2, COLOR
     int x = x1_, y = y1_;
     this->__writePixel(x, y, color);
     if (flag) {
-        while (x != x2_) {
+        while (y != y2_) {
             if (d <= 0) {
                 d += incrE;
             }
@@ -70,7 +71,7 @@ void easy3d::Rasteration::drawLine(float x1, float y1, float x2, float y2, COLOR
 }
 
 // 扫描线填充法填充三角形
-void easy3d::Rasteration::drawFillTriangle(float x1_, float y1_, float x2_, float y2_, float x3_, float y3_, COLORREF color) {
+void easy3d::Rasteration::drawFillTriangle(double x1_, double y1_, double x2_, double y2_, double x3_, double y3_, COLORREF color) {
     // 转换到显示设备坐标系
     this->__toDisplayCoord(x1_, y1_, x1_, y1_);
     this->__toDisplayCoord(x2_, y2_, x2_, y2_);
@@ -92,14 +93,14 @@ void easy3d::Rasteration::drawFillTriangle(float x1_, float y1_, float x2_, floa
         // xnum: 已经确定的交点数量，cx1 cx2 确定的交点的x坐标
         int xnum = 0, cx1, cx2;
         if (y1 != y2) {
-            float t = (y - y1*1.0f)/(y2 - y1);
+            double t = (y - y1*1.0f)/(y2 - y1);
             if (t >= 0 && t <= 1) {
                 xnum++;
                 cx1 = x1 + (x2 - x1) * t;
             }
         }
         if (y2 != y3) {
-            float t = (y - y2 * 1.0f) / (y3 - y2);
+            double t = (y - y2 * 1.0f) / (y3 - y2);
             if (t >= 0 && t <= 1) {
                 // 判断是否和第一个相交了
                 if (xnum == 0) {
@@ -113,7 +114,7 @@ void easy3d::Rasteration::drawFillTriangle(float x1_, float y1_, float x2_, floa
         }
         // 此时必定和这段直线相交
         if (xnum != 2) {
-            float t = (y - y3 * 1.0f) / (y1 - y3);
+            double t = (y - y3 * 1.0f) / (y1 - y3);
             cx2 = x3 + (x1 - x3) * t;
         }
         if (cx1 > cx2) {
@@ -139,9 +140,9 @@ void easy3d::Rasteration::__writePixel(int x, int y, COLORREF color) {
 }
 
 // 将标准成像坐标转换为显示设备坐标
-void easy3d::Rasteration::__toDisplayCoord(float x, float y, float& _x, float& _y) {
+void easy3d::Rasteration::__toDisplayCoord(double x, double y, double& _x, double& _y) {
     x = x + 1;
     y = y + 1;
     _x = x * (this->__width - 1) / 2 + 1;
-    _y = y * (this->__height - 1) / 2 + 1;
+    _y = y * (this->__height - 1) / 2 + 1;  
 }
