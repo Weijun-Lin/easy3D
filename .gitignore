@@ -5,4 +5,4 @@
 # 忽略用户配置文件以及视图
 easy3D/*.user
 easy3D/*.filters
-easy3D/Debug
+easy3D/Debug/
