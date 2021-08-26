@@ -8,7 +8,7 @@
 
 ```c++
 class Rasteration {
-    public:
+public:
     Rasteration(int width, int height);
     ~Rasteration();
 
@@ -21,11 +21,11 @@ class Rasteration {
     // 返回显示缓冲
     const DWORD* getBuffer();
 
-    private:
+private:
     void __writePixel(int x, int y, COLORREF color);
     void __toDisplayCoord(double x, double y, double& _x, double& _y);
 
-    private:
+private:
     int __width;
     int __height;
     int __size;
@@ -35,7 +35,7 @@ class Rasteration {
 
 ### 显示设备 GraphicsDevice
 
-用于将光栅化的缓冲数据显示在设备上，这里使用 [easyx](easyx.cn) 的`DWORD* GetImageBuffer(IMAGE* pImg = NULL);`直接操作设备显示缓冲
+用于将光栅化的缓冲数据显示在设备上，这里使用 [easyx](https://easyx.cn) 的`DWORD* GetImageBuffer(IMAGE* pImg = NULL);`直接操作设备显示缓冲
 
 ```c++
 // 显示设备
