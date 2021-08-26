@@ -2,6 +2,8 @@
 /*/
 # 除了源代码外
 !easy3D/
+# 以及readme资源文件夹
+!README.assets/
 # 忽略用户配置文件以及视图
 easy3D/*.user
 easy3D/*.filters

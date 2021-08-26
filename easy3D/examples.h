@@ -1,3 +1,6 @@
+#ifndef __EXAMPLES_H__
+#define __EXAMPLES_H__
+
 #include "device.h"
 #include "rasterization.h"
 #include "transform.h"
@@ -5,10 +8,8 @@
 #include "clip.h"
 #include <conio.h>
 #include <time.h>
-#include "examples.h"
+
+void example0();
 
 
-int main() {
-    example0();
-    return 0;
-}
+#endif // !__EXAMPLES_H__

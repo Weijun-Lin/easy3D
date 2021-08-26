@@ -128,14 +128,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="clip.cpp" />
     <ClCompile Include="device.cpp" />
+    <ClCompile Include="example0.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="rasterization.cpp" />
     <ClCompile Include="transform.cpp" />
+    <ClCompile Include="utility.cpp" />
     <ClCompile Include="vbo.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="clip.h" />
     <ClInclude Include="device.h" />
+    <ClInclude Include="examples.h" />
     <ClInclude Include="rasterization.h" />
     <ClInclude Include="transform.h" />
     <ClInclude Include="utility.h" />

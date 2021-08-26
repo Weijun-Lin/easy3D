@@ -21,6 +21,9 @@ namespace easy3d {
         // 平截头体拉伸矩阵
         static TransformMat perspective();
         // 由重映射确定的正交投影矩阵，归一化坐标，将平截头体变为-1~1正方体
+        // angle 垂直视张角 
+        // aspect 横纵比
+        // z_near z_far 近远平面
         static TransformMat orth_uniform(double angle, double aspect, double z_near, double z_far);
     };
 }

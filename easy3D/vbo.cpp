@@ -48,6 +48,9 @@ std::vector<Point4> easy3d::VBO::doTrans(TransformMat trans) {
     return res;
 }
 
-Primitive easy3d::VBO::getPrimitive() {
+Primitive easy3d::VBO::getPrimitive() const {
     return this->__primitive;
+}
+const std::vector<Point4>& easy3d::VBO::getData() const {
+    return this->__points;
 }

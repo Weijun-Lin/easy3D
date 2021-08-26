@@ -25,14 +25,13 @@ void easy3d::Rasteration::drawLine(double x1, double y1, double x2, double y2, C
     // 转换到显示设备坐标系
     this->__toDisplayCoord(x1, y1, x1, y1);
     this->__toDisplayCoord(x2, y2, x2, y2);
-
     int x1_ = x1 + 0.5, y1_ = y1 + 0.5, x2_ = x2 + 0.5, y2_ = y2 + 0.5;
     int dx = abs(x2_ - x1_), dy = abs(y2_- y1_);
     bool flag = false;
     // 判断和 x 轴的角度，超过45度交换
     if (dx < dy) {
         flag = true;
-        swap_int(dx, dy);
+        myswap(dx, dy);
     }
 
     int ix = (x2_ - x1_) > 0 ? 1 : -1;
@@ -118,7 +117,7 @@ void easy3d::Rasteration::drawFillTriangle(double x1_, double y1_, double x2_, d
             cx2 = x3 + (x1 - x3) * t;
         }
         if (cx1 > cx2) {
-            swap_int(cx1, cx2);
+            myswap(cx1, cx2);
         }
         // 填充
         for (int x = cx1; x <= cx2; x++) {

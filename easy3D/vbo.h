@@ -21,7 +21,8 @@ namespace easy3d {
         // 设置图元
         void setPrimitive(Primitive primitive);
         std::vector<Point4> doTrans(TransformMat trans);
-        Primitive getPrimitive();
+        Primitive getPrimitive() const;
+        const std::vector<Point4>& getData() const;
     private:
         // 变换矩阵，变换到世界坐标系的变换矩阵
         TransformMat __translate;

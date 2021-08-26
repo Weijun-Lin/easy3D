@@ -2,6 +2,7 @@
 #define __DEVICE_H__
 
 #include "utility.h"
+#include <string.h>
 #include <easyx.h>
 
 
@@ -12,7 +13,12 @@ namespace easy3d {
         GraphicsDevice(int width, int height);
         ~GraphicsDevice();
         
-        void display(const DWORD* buffer);
+        // 显示光栅化结果
+        void displayRaster(const DWORD* buffer);
+        // 显示帧率
+        void outFPS(uint fps);
+        // 刷新画面
+        void flush();
     private:
         // 显示区域的数据缓冲
         DWORD* __display_buffer;
